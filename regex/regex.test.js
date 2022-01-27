@@ -7,7 +7,22 @@ characters (no numbers and symbols) and it should end with capital A else return
 
 function capitalA(s){
     // Add your logic.
-    return;
+    let regex1 = /[a-z]*/gi;
+    let res1 = regex1.test(s);
+    if(res1 == true){
+        let regex2 = /(A)$/g;
+        let res2 =regex2.test(s)
+        if(res2)
+        {
+            return res2
+        }
+        else
+        {
+            return res2;
+        }
+    }
+    else
+        return res1;
 }
 
 
@@ -16,8 +31,12 @@ which end with io (example@example.io) */
 
 function ioEmail(email){
     // Add your logic.
-    return;
+    let regex1= /^\w*@\w*(.io)$/gi;
+    let res1 = regex1.test(email);
+    return res1;
+
 }
+
 
 /* You have a text that contain image names with their extention you need to write a function to 
 find all images in that text and return their names and extention in an array 
@@ -29,6 +48,31 @@ required extention are jpg, jpeg and png.
 function imagesSearcher(text){
     let arr = [];
     // Add your logic.
+    let regex3 = /\w*(.png)/g
+    let res3 = text.match(regex3);
+    if(res3 !== null)
+    {
+    res3.forEach(element => {
+        arr.push(element);
+    });
+    }
+    let regex1 = /\w*(.jpg)/g
+    let res1 = text.match(regex1);
+    if(res1 !== null)    ///////////////////////////In case there is no Image in the text
+    {
+    res1.forEach(element => {
+        arr.push(element);
+    });
+}
+    let regex2 = /\w*(.jpeg)/g
+    let res2 = text.match(regex2);
+    if(res2 !== null)
+    {
+    res2.forEach(element => {
+        arr.push(element);
+    });
+}
+    //console.log(arr);
     return arr
 }
 
